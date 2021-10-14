@@ -8,6 +8,8 @@ class ItemTest(UnitBaseTest):
 
         self.assertEqual(item.name, 'test', 'The name of the item its not equal')
         self.assertEqual(item.price, 19.99, 'The price its not equal')
+        self.assertEqual(item.store_id, 1)
+        self.assertIsNone(item.store)
 
     def test_item_json(self):
         item = ItemModel('test', 19.99, 1)
