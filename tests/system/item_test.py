@@ -23,8 +23,8 @@ class ItemTest(BaseTest):
             with self.app_context():
                 resp = client.get('/item/test')
 
-                self.assertEqual(resp.status_code, 500)
-                self.assertDictEqual({'message': 'Internal Server Error'}, json.loads(resp.data))
+                self.assertEqual(resp.status_code, 401)
+                self.assertDictEqual({'message': 'You need to include a valid authorization header'}, json.loads(resp.data))
 
     def test_get_item_not_found(self):
         with self.app() as client:
